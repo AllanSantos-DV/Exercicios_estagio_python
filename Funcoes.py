@@ -1,3 +1,6 @@
+import re
+
+
 def inverter_palavras(sentence):
     words = sentence.split()
     reversed_words = ' '.join(words[::-1])
@@ -15,10 +18,12 @@ def maior_palindrome(string):
     return longest_palindrome
 
 
-def capitalize_frase(string):
-    sentences = string.split('. ')
-    capitalized_sentences = [sentence.capitalize() for sentence in sentences if sentence]
-    return '. '.join(capitalized_sentences)
+def formatar_frase(frase):
+    pontuacoes_conhecidas = ['.', '!', '?', ':']
+    palavras = frase.split()
+    nova_frase = [palavra.capitalize() if (i == 0 or palavras[i - 1][-1] in pontuacoes_conhecidas) else palavra for
+                  i, palavra in enumerate(palavras)]
+    return ' '.join(nova_frase)
 
 
 def anagrama_palindrome(string):

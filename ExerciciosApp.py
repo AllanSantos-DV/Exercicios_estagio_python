@@ -4,8 +4,13 @@ from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+import logging
+import kivy
+kivy.logger.disabled = True
+logging.getLogger().addHandler(logging.NullHandler())
+logging.disable(logging.CRITICAL)
 
-from Funcoes import inverter_palavras, remover_duplicados, maior_palindrome, capitalize_frase, anagrama_palindrome
+from Funcoes import inverter_palavras, remover_duplicados, maior_palindrome, anagrama_palindrome, formatar_frase
 
 
 class TelaPrincipal(BoxLayout):
@@ -73,7 +78,7 @@ def executar_exercicio(exercicio, entrada):
     elif exercicio == 'Encontrar a substring palindrômica':
         return maior_palindrome(entrada)
     elif exercicio == 'Colocar em maiúscula a primeira letra de cada frase':
-        return capitalize_frase(entrada)
+        return formatar_frase(entrada)
     elif exercicio == 'Verificar se é um anagrama de um palíndromo':
         return anagrama_palindrome(entrada)
     else:
