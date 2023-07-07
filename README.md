@@ -2,6 +2,16 @@
 
 Este repositório contém a resolução dos exercícios de manipulação de strings usando a linguagem Python (versão 3.8.5).
 
+## Menu
+
+- ### [Classe e Funções da aplicação](#classes-e-funções)
+- ### [Interface da aplicação](#interface)
+- ### [Funções da aplicação:](#funções-disponíveis)
+- ### [Testes com Unittest](#testes)
+- ### [Executar a aplicação](#execução)
+- ### [Observações da aplicação](#observações)
+   
+
 ## Classes e Funções
 
 - `TelaPrincipal`: Classe que define a interface principal do programa.
@@ -19,9 +29,10 @@ exercício e inserir uma entrada para executá-lo.
 
 <img src='/IMG/TelaInicio.png' alt="Tela Inicio" width="802" height="330" title="Tela">
 
-### Exercícios Disponíveis
+## Funções Disponíveis
+- #### [`Inverter Palavras`](#reverter-a-ordem-das-palavras)[`Remover Duplicados`](#remover-caracteres-duplicados)[`Maior Palindrome`](#encontrar-a-substring-palindrômica)[`Formatar Frase`](#colocar-em-maiúscula-a-primeira-letra-de-cada-frase)[`Anagrama Palindrome`](#verificar-se-é-um-anagrama-de-um-palíndromo)
 
-1. **Reverter a ordem das palavras**:
+1. ### **Reverter a ordem das palavras**:
     - **Função:** `inverter_palavras(sentence)`
     - **Descrição:** Esta função inverte a ordem das palavras em uma frase. Ela recebe uma frase como entrada e retorna
       a frase com as palavras invertidas.
@@ -32,7 +43,7 @@ exercício e inserir uma entrada para executá-lo.
             return reversed_words
    ```
 
-2. **Remover caracteres duplicados**:
+2. ### **Remover caracteres duplicados**:
     - **Função:** `remover_duplicados(sentence)`
     - **Descrição:** Esta função remove todos os caracteres duplicados de uma frase. Ela recebe uma frase como entrada
       e retorna uma nova frase com os caracteres duplicados removidos.
@@ -41,7 +52,8 @@ exercício e inserir uma entrada para executá-lo.
             unique_chars = ''.join(char for i, char in enumerate(string) if char not in string[:i])
             return unique_chars
    ```
-3. **Encontrar a substring palindrômica**:
+
+3. ### **Encontrar a substring palindrômica**:
     - **Função:** `maior_palindrome(string)`
     - **Descrição:** Esta função encontra a maior substring palindrômica em uma string. Ela verifica todas as substrings
       possíveis na string de entrada e retorna a maior substring que é um palíndromo. Um palíndromo é uma sequência de
@@ -53,7 +65,7 @@ exercício e inserir uma entrada para executá-lo.
             return longest_palindrome
    ```
 
-4. **Colocar em maiúscula a primeira letra de cada frase**:
+4. ### **Colocar em maiúscula a primeira letra de cada frase**:
     - **Função:** `formatar_frase(frase)`
     - **Descrição:** Esta função coloca em maiúscula a primeira letra de cada palavra em uma frase. Ela recebe uma frase
       contendo uma ou mais palavras e retorna a mesma frase, mas com a primeira letra de cada palavra convertida para
@@ -68,7 +80,8 @@ exercício e inserir uma entrada para executá-lo.
                            i, palavra in enumerate(palavras)]
             return ' '.join(nova_frase)
    ```
-5. **Verificar se é um anagrama de um palíndromo**:
+
+5. ### **Verificar se é um anagrama de um palíndromo**:
     - **Função:** `anagrama_palindrome(string)`
     - **Descrição:** Esta função verifica se uma string é um anagrama de um palíndromo. Ela recebe uma string como
       entrada e determina se a string pode ser rearranjada de tal forma que forme um palíndromo. Para isso, ela verifica
@@ -130,6 +143,7 @@ de testes `unittest`. Os testes verificam se as funções estão produzindo os r
 
 - clone esse repositorio em seu ambiente local.
 - Para executar o programa, execute o seguinte comando:
+- Classe `Funcoes` disponivel no Google Colab: [**Funcoes.py**](https://colab.research.google.com/drive/1oQ5LlPIqKyOsuIxpS_pwFz0vTnjMr2TL?usp=sharing)
       
    ```shell
    python ExerciciosApp.py

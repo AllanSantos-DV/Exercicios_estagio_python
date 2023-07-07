@@ -1,6 +1,3 @@
-import re
-
-
 def inverter_palavras(sentence):
     words = sentence.split()
     reversed_words = ' '.join(words[::-1])
