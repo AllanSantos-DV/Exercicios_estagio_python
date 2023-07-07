@@ -8,7 +8,8 @@ Este repositório contém a resolução dos exercícios de manipulação de stri
 - ### [Interface da aplicação](#interface)
 - ### [Funções da aplicação:](#funções-disponíveis)
 - ### [Testes com Unittest](#testes)
-- ### [Executar a aplicação](#execução)
+- ### [Executar a aplicação:](#execução) [`myCompiler`](https://www.mycompiler.io/view/LTQTMygLH8s) [`Google Colab`](https://colab.research.google.com/drive/1oQ5LlPIqKyOsuIxpS_pwFz0vTnjMr2TL?usp=sharing)
+    * #### ***Observação:*** Os exercicios apresentados nos sites acima foram devidamente alterados para ser executado no ambiente disponivel no site.
 - ### [Observações da aplicação](#observações)
    
 
@@ -143,7 +144,6 @@ de testes `unittest`. Os testes verificam se as funções estão produzindo os r
 
 - clone esse repositorio em seu ambiente local.
 - Para executar o programa, execute o seguinte comando:
-- Classe `Funcoes` disponivel no Google Colab: [**Funcoes.py**](https://colab.research.google.com/drive/1oQ5LlPIqKyOsuIxpS_pwFz0vTnjMr2TL?usp=sharing)
       
    ```shell
    python ExerciciosApp.py
