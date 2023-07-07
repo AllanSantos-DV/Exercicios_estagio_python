@@ -1,14 +1,9 @@
 from kivy.app import App
+from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
-from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
-import logging
-import kivy
-kivy.logger.disabled = True
-logging.getLogger().addHandler(logging.NullHandler())
-logging.disable(logging.CRITICAL)
 
 from Funcoes import inverter_palavras, remover_duplicados, maior_palindrome, anagrama_palindrome, formatar_frase
 
@@ -17,6 +12,7 @@ class TelaPrincipal(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'vertical'
+        Window.size = (800, 300)
         self.dropdown = DropDown()
         self.exercicios = [
             'Reverter a ordem das palavras',
@@ -25,8 +21,8 @@ class TelaPrincipal(BoxLayout):
             'Colocar em maiúscula a primeira letra de cada frase',
             'Verificar se é um anagrama de um palíndromo'
         ]
-        self.input_text = TextInput(hint_text='Digite a entrada', size_hint=(1, 0.2))
-        self.output_label = Label()
+        self.input_text = TextInput(hint_text='Digite a entrada', size_hint=(1, 0.1))
+        self.output_label = TextInput(size_hint=(1, 0.1), readonly=True, halign='center')
         self.exercicio_selecionado = None
 
         self.criar_menu()
@@ -34,15 +30,15 @@ class TelaPrincipal(BoxLayout):
 
     def criar_menu(self):
         for exercicio in self.exercicios:
-            btn = Button(text=exercicio, size_hint_y=None, height=44)
+            btn = Button(text=exercicio, size_hint_y=None, height=40)
             btn.bind(on_release=lambda button: self.selecionar_exercicio(button.text))
             self.dropdown.add_widget(btn)
 
     def criar_interface(self):
-        box_principal = BoxLayout(orientation='vertical', size_hint=(1, 1), padding=50)
+        box_principal = BoxLayout(orientation='vertical', size_hint=(1, 1), padding=30)
 
-        iniciar_button = Button(text='Iniciar', size_hint=(1, 0.2))
-        dropdown_button = Button(text='Exercícios', size_hint=(1, 0.2))
+        iniciar_button = Button(text='Iniciar', size_hint=(1, 0.1))
+        dropdown_button = Button(text='Exercícios', size_hint=(1, 0.1))
         dropdown_button.bind(on_release=self.dropdown.open)
         self.dropdown.bind(on_select=lambda instance, value: setattr(dropdown_button, 'text', value))
         iniciar_button.bind(on_release=self.iniciar_exercicio)

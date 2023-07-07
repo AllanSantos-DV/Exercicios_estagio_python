@@ -7,8 +7,8 @@ def inverter_palavras(sentence):
     return reversed_words
 
 
-def remover_duplicados(string):
-    unique_chars = ''.join(char for i, char in enumerate(string) if char not in string[:i])
+def remover_duplicados(sentence):
+    unique_chars = ''.join(char for i, char in enumerate(sentence) if char not in sentence[:i])
     return unique_chars
 
 
