@@ -1,7 +1,18 @@
+import re
+
+
+def validar_entrada(valor):
+    return len(valor.strip()) == 0 or not caracteres_permitidos(valor)
+
+
+def caracteres_permitidos(valor):
+    padrao = r"^[\w\s.,!?-]*$"
+    return re.match(padrao, valor)
+
+
 def inverter_palavras(sentence):
     words = sentence.split()
-    reversed_words = ' '.join(words[::-1])
-    return reversed_words
+    return ' '.join(words[::-1])
 
 
 def remover_duplicados(sentence):
@@ -17,7 +28,7 @@ def maior_palindrome(string):
 
 def formatar_frase(frase):
     pontuacoes_conhecidas = ['.', '!', '?', ':']
-    palavras = frase.split()
+    palavras = frase.lower().split()
     nova_frase = [palavra.capitalize() if (i == 0 or palavras[i - 1][-1] in pontuacoes_conhecidas) else palavra for
                   i, palavra in enumerate(palavras)]
     return ' '.join(nova_frase)

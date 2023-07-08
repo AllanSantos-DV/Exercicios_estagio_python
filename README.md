@@ -9,13 +9,14 @@ Este repositório contém a resolução dos exercícios de manipulação de stri
 - ### [Funções da aplicação:](#funções-disponíveis)
 - ### [Testes com Unittest](#testes)
 - ### [Executar a aplicação:](#execução) [`myCompiler`](https://www.mycompiler.io/view/LTQTMygLH8s) [`Google Colab`](https://colab.research.google.com/drive/1oQ5LlPIqKyOsuIxpS_pwFz0vTnjMr2TL?usp=sharing)
-    * #### ***Observação:*** Os exercicios apresentados nos sites acima foram devidamente alterados para ser executado no ambiente disponivel no site.
+    * #### ***Observação:***
+      ***Os exercicios apresentados nos sites acima foram devidamente alterados para ser executado no ambiente
+      disponivel no site.***
 - ### [Observações da aplicação](#observações)
-   
 
-## Classes e Funções
+## Modulos e Funções
 
-- `TelaPrincipal`: Classe que define a interface principal do programa.
+- `TelaApp.py`: Modulo que define a interface principal do programa.
 - `executar_exercicio`: Função que executa o exercício selecionado com a entrada fornecida.
 - `inverter_palavras`: Função que reverte a ordem das palavras em uma frase.
 - `remover_duplicados`: Função que remove caracteres duplicados de uma string.
@@ -25,13 +26,20 @@ Este repositório contém a resolução dos exercícios de manipulação de stri
 
 ## Interface
 
-A interface principal do programa é definida pela classe `TelaPrincipal`. Nesta interface, é possível selecionar um
-exercício e inserir uma entrada para executá-lo.
+A interface principal do programa é definida pela modulo `TelaApp.py`. Nesta interface, é possível selecionar um
+exercício e inserir uma entrada para executá-lo alem de poder realizar os testes do modulo `FuncoesTest.py`.
 
-<img src='/IMG/TelaInicio.png' alt="Tela Inicio" width="802" height="330" title="Tela">
+<img src='/IMG/TelaApp.png' alt="Tela Inicio" width="598" height="328" title="Tela">
 
 ## Funções Disponíveis
+
 - #### [`Inverter Palavras`](#reverter-a-ordem-das-palavras)[`Remover Duplicados`](#remover-caracteres-duplicados)[`Maior Palindrome`](#encontrar-a-substring-palindrômica)[`Formatar Frase`](#colocar-em-maiúscula-a-primeira-letra-de-cada-frase)[`Anagrama Palindrome`](#verificar-se-é-um-anagrama-de-um-palíndromo)
+
+1. ### **Validar Entrada do usuario**:
+    - **Função:** `validar_entrada(valor)`
+    - **Descrição:** Esta função verifica se um valor de entrada é válido. Ela recebe um valor como entrada e retorna
+      `True` se o valor for inválido e `False` se o valor for válido. Um valor é considerado inválido se comprimento for igual a ***zero***.
+        A validação se o valor é ***None*** ou se é um instancia de uma ***String*** ***str()***, nao se faz necessario devido o ***tk.Entry()*** que foi usado para receber a entrada do usuario retorna o texto como ***String*** ***str()***.
 
 1. ### **Reverter a ordem das palavras**:
     - **Função:** `inverter_palavras(sentence)`
@@ -144,24 +152,49 @@ de testes `unittest`. Os testes verificam se as funções estão produzindo os r
 
 - clone esse repositorio em seu ambiente local.
 - Para executar o programa, execute o seguinte comando:
-      
+
    ```shell
-   python ExerciciosApp.py
+   python TelaApp.py
    ```
 
-Certifique-se de ter o Python (versão 3.8.5) e as dependências necessárias instaladas no ambiente.
-
-- Dependencias: Kivy
-- Kivy: O framework Kivy é utilizado para a criação da interface gráfica. É necessário ter o Kivy instalado. Você pode
-  instalá-lo usando o seguinte comando: `pip install kivy`
+Certifique-se de ter o Python (versão 3.8.5) ou supeior e as dependências necessárias instaladas no ambiente.
 
 ## Observações
 
-- O programa utiliza o framework Kivy para a criação da interface gráfica.
-- As classes e funções estão definidas em arquivos separados, conforme a organização recomendada.
-- O programa utiliza a formatação de strings do Python para manipulação de textos.
-- Os exercícios estão implementados utilizando abordagens simples e eficientes.
-- Os testes foram implementados para garantir o correto funcionamento das funções de manipulação de strings.
-- Para todos os itens foi presumido que a string de entrada conterá apenas caracteres alfabéticos, espaços e sinais de
+* ### *Nessa Aplicação foi usado o Tkinter para a criação da Interfaçe grafica e o Pyinstaller para criar o executavel*
+
+    -
+        * Tkinter: O Tkinter é uma biblioteca padrão do Python para criação de interfaces gráficas. Não são necessárias
+          dependências adicionais para usar o Tkinter, pois ele vem pré-instalado com o Python. Ele oferece uma ampla
+          gama de
+          recursos para criar aplicativos com interfaces de usuário interativas.<br><br>
+
+    -
+        * Pyinstaller: O PyInstaller é uma ferramenta usada para criar executáveis independentes de plataformas para
+          aplicativos
+          Python. Ele permite empacotar um programa Python junto com todas as suas dependências em um único arquivo
+          executável,
+          tornando mais fácil distribuir e executar o aplicativo em diferentes sistemas operacionais sem a necessidade
+          de
+          instalar o Python ou quaisquer bibliotecas adicionais.
+    -
+        * Para instalar o Pyinstaller execute `pip install pyinstaller`
+
+
+* As classes e funções estão definidas em arquivos separados, conforme a organização recomendada.
+
+
+* O programa utiliza a formatação de strings do Python para manipulação de textos.
+
+
+* Os exercícios estão implementados utilizando abordagens simples e eficientes.
+
+
+* Os testes foram implementados para garantir o correto funcionamento das funções de manipulação de strings.
+
+
+* Para todos os itens foi presumido que a string de entrada conterá apenas caracteres alfabéticos, espaços e sinais de
   pontuação.
-- A saída para cada tarefa foi retornada como uma string.
+
+
+* A saída para cada tarefa foi retornada como uma string.
