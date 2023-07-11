@@ -20,10 +20,10 @@ def remover_duplicados(sentence):
     return unique_chars
 
 
-def maior_palindrome(string):
-    longest_palindrome = max((string[i:j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)
+def maior_palindromo(string):
+    longest_palindromo = max((string[i:j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)
                               if string[i:j] == string[i:j][::-1]), key=len, default='')
-    return longest_palindrome
+    return longest_palindromo
 
 
 def formatar_frase(frase):
@@ -34,7 +34,7 @@ def formatar_frase(frase):
     return ' '.join(nova_frase)
 
 
-def anagrama_palindrome(string):
+def anagrama_palindromo(string):
     char_count = {char: string.count(char) for char in set(string)}
     odd_count = sum(1 for count in char_count.values() if count % 2 != 0)
     return 'true' if odd_count <= 1 else 'false'

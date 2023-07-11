@@ -73,9 +73,9 @@ exercicio_label.pack()
 opcoes = [
     {"opcao": "Inverter Palavras", "funcao": Funcoes.inverter_palavras},
     {"opcao": "Remover Duplicados", "funcao": Funcoes.remover_duplicados},
-    {"opcao": "Maior Palindrome", "funcao": Funcoes.maior_palindrome},
+    {"opcao": "Maior Palindromo", "funcao": Funcoes.maior_palindromo},
     {"opcao": "Formatar Frase", "funcao": Funcoes.formatar_frase},
-    {"opcao": "Anagrama Palindrome", "funcao": Funcoes.anagrama_palindrome}
+    {"opcao": "Anagrama Palindromo", "funcao": Funcoes.anagrama_palindromo}
 ]
 
 # Variável para armazenar a opção selecionada

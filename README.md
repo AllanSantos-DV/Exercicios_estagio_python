@@ -4,7 +4,7 @@ Este repositório contém a resolução dos exercícios de manipulação de stri
 
 ## Menu
 
-- ### [Classe e Funções da aplicação](#classes-e-funções)
+- ### [Classe e Funções da aplicação](#modulos-e-funções)
 - ### [Interface da aplicação](#interface)
 - ### [Funções da aplicação:](#funções-disponíveis)
 - ### [Testes com Unittest](#testes)
@@ -34,51 +34,60 @@ exercício e inserir uma entrada para executá-lo alem de poder realizar os test
 
 1. ### **Validar Entrada do usuario**:
     - **Função:** `validar_entrada(valor)`
-    - **Descrição:** Esta função verifica se um valor de entrada é válido. Ela recebe um valor como entrada e retorna
-      `True` se o valor for inválido e `False` se o valor for válido. Um valor é considerado inválido se comprimento for igual a ***zero***.
-        A validação se o valor é ***None*** ou se é um instancia de uma ***String*** ***str()***, nao se faz necessario devido o ***tk.Entry()*** que foi usado para receber a entrada do usuario retorna o texto como ***String*** ***str()***.
+    - **Descrição:** Esta função verifica se um valor de entrada é válido. Ela conta com uma função Auxiliar `caracteres_permitidos` para verificar a presença de caracteres permitidos. Ela recebe um valor como entrada e retorna
+      `True` se o valor for inválido e `False` se o valor for válido. Um valor é considerado inválido se comprimento for igual a ***zero*** ou se não conter caracteres permitidos.
+   
+    ```python
+    def validar_entrada(valor):
+        return len(valor.strip()) == 0 or not caracteres_permitidos(valor)
 
-1. ### **Reverter a ordem das palavras**:
+
+    def caracteres_permitidos(valor):
+        padrao = r"^[\w\s.,!?-]*$"
+        return re.match(padrao, valor)
+    ```
+
+2. ### **Reverter a ordem das palavras**:
     - **Função:** `inverter_palavras(sentence)`
     - **Descrição:** Esta função inverte a ordem das palavras em uma frase. Ela recebe uma frase como entrada e retorna
       a frase com as palavras invertidas.
-   ```
+   ```python
       def inverter_palavras(sentence):
             words = sentence.split()
             reversed_words = ' '.join(words[::-1])
             return reversed_words
    ```
 
-2. ### **Remover caracteres duplicados**:
+3. ### **Remover caracteres duplicados**:
     - **Função:** `remover_duplicados(sentence)`
     - **Descrição:** Esta função remove todos os caracteres duplicados de uma frase. Ela recebe uma frase como entrada
       e retorna uma nova frase com os caracteres duplicados removidos.
-   ```
+   ```python
       def remover_duplicados(string):
             unique_chars = ''.join(char for i, char in enumerate(string) if char not in string[:i])
             return unique_chars
    ```
 
-3. ### **Encontrar a substring palindrômica**:
-    - **Função:** `maior_palindrome(string)`
+4. ### **Encontrar a substring palindrômica**:
+    - **Função:** `maior_palindromo(string)`
     - **Descrição:** Esta função encontra a maior substring palindrômica em uma string. Ela verifica todas as substrings
       possíveis na string de entrada e retorna a maior substring que é um palíndromo. Um palíndromo é uma sequência de
       caracteres que permanece a mesma quando lida da esquerda para a direita e da direita para a esquerda.
-   ```
-      def maior_palindrome(string):
-            longest_palindrome = max((string[i:j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)
+   ```python
+      def maior_palindromo(string):
+            longest_palindromo = max((string[i:j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)
                               if string[i:j] == string[i:j][::-1]), key=len, default='')
-            return longest_palindrome
+            return longest_palindromo
    ```
 
-4. ### **Colocar em maiúscula a primeira letra de cada frase**:
+5. ### **Colocar em maiúscula a primeira letra de cada frase**:
     - **Função:** `formatar_frase(frase)`
     - **Descrição:** Esta função coloca em maiúscula a primeira letra de cada palavra em uma frase. Ela recebe uma frase
       contendo uma ou mais palavras e retorna a mesma frase, mas com a primeira letra de cada palavra convertida para
       maiúscula. As palavras são identificadas com base em pontuações como ponto final (.), ponto de exclamação (!),
       ponto
       de interrogação (?) e dois pontos (:).
-   ```
+   ```python
       def formatar_frase(frase):
             pontuacoes_conhecidas = ['.', '!', '?', ':']
             palavras = frase.split()
@@ -87,16 +96,16 @@ exercício e inserir uma entrada para executá-lo alem de poder realizar os test
             return ' '.join(nova_frase)
    ```
 
-5. ### **Verificar se é um anagrama de um palíndromo**:
-    - **Função:** `anagrama_palindrome(string)`
+6. ### **Verificar se é um anagrama de um palíndromo**:
+    - **Função:** `anagrama_palindromo(string)`
     - **Descrição:** Esta função verifica se uma string é um anagrama de um palíndromo. Ela recebe uma string como
       entrada e determina se a string pode ser rearranjada de tal forma que forme um palíndromo. Para isso, ela verifica
       se todos os caracteres na string têm um número par de ocorrências, com exceção de no máximo um caractere, que pode
       ter um número ímpar de ocorrências. A função retorna ***"true"*** se a string for um anagrama de um palíndromo e
       ***"
       false"*** caso contrário.
-   ```
-      def anagrama_palindrome(string):
+   ```python
+      def anagrama_palindromo(string):
             char_count = {char: string.count(char) for char in set(string)}
             odd_count = sum(1 for count in char_count.values() if count % 2 != 0)
             return 'true' if odd_count <= 1 else 'false'
@@ -109,40 +118,40 @@ de testes `unittest`. Os testes verificam se as funções estão produzindo os r
 
 **Importando funções da classe Funcoes:**
 
-   ```
-   from Funcoes import inverter_palavras, remover_duplicados, maior_palindrome, anagrama_palindrome, formatar_frase
+   ```python
+   from Funcoes import inverter_palavras, remover_duplicados, maior_palindromo, anagrama_palindromo, formatar_frase
    ```
 
 1. **Reverter a ordem das palavras:**
-   ```
+   ```python
       def test_inverter_palavras(self):
             self.assertEqual(inverter_palavras("Hello, World! OpenAI is amazing."),
                          "amazing. is OpenAI World! Hello,")
    ```
 
 2. **Remover caracteres duplicados:**
-   ```
+   ```python
       def test_remover_duplicados(self):
             self.assertEqual(remover_duplicados("Hello, World!"), "Helo, Wrd!")
    ```
 
 3. **Encontrar a substring palindrômica**:
-   ```
-      def test_maior_palindrome(self):
-            self.assertEqual(maior_palindrome("babad"), "bab")
+   ```python
+      def test_maior_palindromo(self):
+            self.assertEqual(maior_palindromo("babad"), "bab")
    ```
 
 4. **Colocar em maiúscula a primeira letra de cada frase**:
-   ```
+   ```python
       def test_capitalize_frase(self):
             self.assertEqual(formatar_frase("hello. how are you? i'm fine, thank you."),
                         "Hello. How are you? I'm fine, thank you.")
    ```
 
 5. **Verificar se é um anagrama de um palíndromo**:
-   ```
-      def test_anagrama_palindrome(self):
-            self.assertEqual(anagrama_palindrome("racecar"), "true")
+   ```python
+      def test_anagrama_palindromo(self):
+            self.assertEqual(anagrama_palindromo("racecar"), "true")
    ```
 
 ## Execução
